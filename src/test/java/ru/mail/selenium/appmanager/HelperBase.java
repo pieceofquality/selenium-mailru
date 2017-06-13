@@ -2,6 +2,7 @@ package ru.mail.selenium.appmanager;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
 
@@ -59,5 +60,6 @@ public class HelperBase {
     public String getElementValue(String locator) {
         return wd.findElement(By.name(locator)).getAttribute("value");
     }
+
 
 }

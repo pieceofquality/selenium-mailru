@@ -3,10 +3,12 @@ package ru.mail.selenium.model;
 public class MailData {
     private final String to;
     private final String subject;
+    private final String body;
 
-    public MailData(String to, String subject) {
+    public MailData(String to, String subject, String body) {
         this.to = to;
         this.subject = subject;
+        this.body = body;
     }
 
     public String getTo() {
@@ -15,5 +17,9 @@ public class MailData {
 
     public String getSubject() {
         return subject;
+    }
+
+    public String getBody() {
+        return body;
     }
 }

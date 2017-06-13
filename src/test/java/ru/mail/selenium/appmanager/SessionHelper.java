@@ -12,7 +12,7 @@ public class SessionHelper extends HelperBase {
     }
 
     public void login(String username, String password) {
-        type(By.id("mailbox__login"), username);
+        type(By.cssSelector(".mailbox__login.mix_placeholder"), username);
         type(By.id("mailbox__password"), password);
         click(By.id("mailbox__auth__button"));
     }
