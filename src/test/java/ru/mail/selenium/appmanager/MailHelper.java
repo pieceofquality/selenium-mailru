@@ -24,7 +24,6 @@ public class MailHelper extends HelperBase {
 
     public void fillMailForm(MailData mailData){
         type(By.cssSelector("textarea[data-original-name=To]"), mailData.getTo());
-        wd.findElement(By.cssSelector("textarea[data-original-name=To]")).sendKeys(Keys.RETURN);
         type(By.cssSelector("input[name=Subject]"), mailData.getSubject());
         wd.switchTo().frame(wd.findElement(By.cssSelector("iframe[id$='composeEditor_ifr']")));
         type(By.cssSelector("body"), mailData.getBody());
