@@ -50,28 +50,26 @@ public class MailHelper extends HelperBase {
 
 //    public String Subj = wd.findElement(By.cssSelector(".b-letter__head__subj__text")).getText();
 
-    public void checkSentMailFields(String expBody, String expSubject, String expTo)
+    public void checkSentMailFields(MailData mailData)
     {
-
         WebElement element;
         element = wd.findElement(By.cssSelector("#b-letters div[data-cache-key='500000_undefined_false'] .b-datalist__body [data-bem='b-datalist__item']"));
         String t = element.getText();
-        Assert.assertTrue(t.contains(expSubject));
-        Assert.assertTrue(t.contains(expBody));
-        Assert.assertTrue(t.contains(expTo));
-
+        Assert.assertTrue(t.contains(mailData.getBody()));
+        Assert.assertTrue(t.contains(mailData.getSubject()));
+        Assert.assertTrue(t.contains(mailData.getTo()));
     }
 
 
-    public void checkDraftMailFields(String expBody, String expSubject, String expTo)
+    public void checkDraftMailFields(MailData mailData)
     {
 
         WebElement element;
         element = wd.findElement(By.cssSelector("#b-letters div[data-cache-key='500001_undefined_false'] .b-datalist__body [data-bem='b-datalist__item']"));
         String t = element.getText();
-        Assert.assertTrue(t.contains(expSubject));
-        Assert.assertTrue(t.contains(expBody));
-        Assert.assertTrue(t.contains(expTo));
+        Assert.assertTrue(t.contains(mailData.getBody()));
+        Assert.assertTrue(t.contains(mailData.getSubject()));
+        Assert.assertTrue(t.contains(mailData.getTo()));
 
     }
 }

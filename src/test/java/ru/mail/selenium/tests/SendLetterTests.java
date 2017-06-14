@@ -24,11 +24,12 @@ public class SendLetterTests extends TestBase {
 
     @Test
     public void testDraftMail() throws InterruptedException {
+        MailData mailData = new MailData("test", "test", "test");
         app.getMailHelper().initMailCreation();
-        app.getMailHelper().fillMailForm(new MailData("test@mail.ru", "test", "test"));
+        app.getMailHelper().fillMailForm(mailData);
         app.getMailHelper().saveDraft();
         app.getNavigationHelper().goToDrafts();
-        app.getMailHelper().checkDraftMailFields("test", "test", "test");
+        app.getMailHelper().checkDraftMailFields(mailData);
         app.getMailHelper().logOut();
     }
 
@@ -41,11 +42,12 @@ public class SendLetterTests extends TestBase {
 
     @Test
     public void testSentMail(){
+        MailData mailData = new MailData("testisok", "testsubject", "testbody");
         app.getMailHelper().initMailCreation();
-        app.getMailHelper().fillMailForm(new MailData("testisok@mail.ru", "testsubject", "testbody"));
+        app.getMailHelper().fillMailForm(mailData);
         app.getMailHelper().submitMail();
         app.getNavigationHelper().goToSent();
-        app.getMailHelper().checkSentMailFields("testbody", "testsubject", "testisok");
+        app.getMailHelper().checkSentMailFields(mailData);
         app.getMailHelper().logOut();
     }
 

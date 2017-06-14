@@ -1,11 +1,14 @@
 package ru.mail.selenium.appmanager;
 
+import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.BrowserType;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -24,10 +27,13 @@ public class ApplicationManager {
     }
 
     public void init() throws IOException {
+
         if (browser.equals(BrowserType.FIREFOX)) {
             wd = new FirefoxDriver();
         } else if (browser.equals(BrowserType.CHROME)) {
-            wd = new ChromeDriver();
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--start-maximized");
+            wd = new ChromeDriver(options);
         } else if (browser.equals(BrowserType.IE)){
             wd = new InternetExplorerDriver();
         } else if (browser.equals(BrowserType.EDGE)){
